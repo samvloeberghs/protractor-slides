@@ -44,7 +44,7 @@
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
-                <section>
+                <section id="protractor-fully-automated-e2e-testing">
                     <h1>Protractor</h1>
                     <h3>Fully automated E2E testing</h3>
                     <p>
@@ -52,7 +52,7 @@
                                 href="http://twitter.com/samvloeberghs">@samvloeberghs</a></small>
                     </p>
                 </section>
-				<section>
+				<section id="whoami">
 					<h2>whoami?</h2>
 					<img src="img/samvloeberghs.jpg" alt="Sam Vloeberghs" id="profilepic" />
 					<h3>
@@ -69,7 +69,7 @@
 					</p>
 				</section>
 
-				<section>
+				<section id="what-is-protractor">
 
 					<h2>What is protractor</h2>
 
@@ -82,7 +82,7 @@
 
 				</section>
 
-				<section>
+				<section id="unit-vs-e2e-testing">
 					<h2>Unit vs E2E testing</h2>
 					<ul>
 						<li>test units / atomic parts of app</li>
@@ -97,8 +97,8 @@
 					</ul>
 				</section>
 
-                <section>
-                    <section>
+                <section id="best-practices-1">
+
                         <h2>Best practices (1)</h2>
                         <p>
                             Based on the styleguide by
@@ -107,42 +107,39 @@
                         <ul>
                             <li><strong>do not cheat on your tests</strong></li>
                         </ul>
-                    </section>
+				</section>
 
-                    <section>
-                        <ul class="wide">
-                            <li>don't retest what's unit tested</li>
-                            <li>use proper naming for elements</li>
-                            <li>wrap common elements in page objects</li>
-                        </ul>
-                    </section>
+				<section id="best-practices-2">
+					<ul class="wide">
+						<li>don't retest what's unit tested</li>
+						<li>use proper naming for elements</li>
+						<li>wrap common elements in page objects</li>
+					</ul>
+				</section>
 
-                    <section>
-                        <ul class="wide">
-                            <li>don't use the Xpath selector</li>
-                            <li>don't mock unless you need to</li>
-                            <li>refresh / navigate before every test</li>
-                        </ul>
-                    </section>
-                </section>
+				<section id="best-practices-3">
+					<ul class="wide">
+						<li>don't use the Xpath selector</li>
+						<li>don't mock unless you need to</li>
+						<li>refresh / navigate before every test</li>
+					</ul>
+				</section>
 
-				<section>
+				<section id="locators-functions">
+					<h2>Locators & functions</h2>
+					<ul>
+						<li>find elements</li>
+						<li>perform actions</li>
+						<li>retrieve values</li>
+					</ul>
+					<p>
+						<strong>All operations are async!</strong>
+					</p>
+				</section>
 
-					<section>
-						<h2>Locators & functions</h2>
-						<ul>
-							<li>find elements</li>
-							<li>perform actions</li>
-							<li>retrieve values</li>
-						</ul>
-						<p>
-							<strong>All operations are async!</strong>
-						</p>
-					</section>
-
-					<section>
-						<h3>Locators</h3>
-						<pre><code class="hljs" contenteditable style="word-wrap: break-word;">
+				<section id="locators">
+					<h3>Locators</h3>
+					<pre><code class="hljs" contenteditable style="word-wrap: break-word;">
 element(by.id('addbutton'));	// <button id="addbutton"></button>
 element(by.css('some-css'));	// <some-css></some-css>
 element(by.css('.special'));	// <span class="special"></span>
@@ -151,14 +148,14 @@ element(by.binding('name'));	// <span ng-bind="item.name"></span>
 
 element(by.css('my-css'));	// is the same as
 $('my-css');			// short cut selector  ( css selectors )
-						</code></pre>
-						<p>Protractor documentation : <a href="https://angular.github.io/protractor/#/locators#locators">locators</a></p>
-					</section>
+					</code></pre>
+					<p>Protractor documentation : <a href="https://angular.github.io/protractor/#/locators#locators">locators</a></p>
+				</section>
 
-					<section>
-						<h3>Actions</h3>
-						<pre><code class="hljs" contenteditable style="word-wrap: break-word;">
-var el = element(locator);
+				<section id="actions">
+					<h3>Actions</h3>
+					<pre><code class="hljs" contenteditable style="word-wrap: break-word;">
+let el = element(locator);
 
 // Click on the element
 el.click();
@@ -171,16 +168,16 @@ el.clear();
 
 // Get the value of an attribute, for example, get the value of an input
 el.getAttribute('value');
-						</code></pre>
+					</code></pre>
 
-						<p>Protractor documentation : <a href="https://angular.github.io/protractor/#/locators#actions">actions</a></p>
-					</section>
+					<p>Protractor documentation : <a href="https://angular.github.io/protractor/#/locators#actions">actions</a></p>
+				</section>
 
-					<section>
-						<h3>Finding multiple elements</h3>
-						<pre><code class="hljs" contenteditable style="word-wrap: break-word;">
+				<section id="finding-muliple-elements">
+					<h3>Finding multiple elements</h3>
+					<pre><code class="hljs" contenteditable style="word-wrap: break-word;">
 element.all(by.css('.selector')).then(function(elements) {
-	// elements is an array of ElementFinders.
+// elements is an array of ElementFinders.
 });
 
 // Number of elements.
@@ -192,25 +189,22 @@ element.all(locator).get(index);
 // First and last.
 element.all(locator).first();
 element.all(locator).last();
-						</code></pre>
+					</code></pre>
 
-						<p>Protractor documentation : <a href="https://angular.github.io/protractor/#/locators#finding-multiple-elements">multiple elements</a></p>
-					</section>
-
+					<p>Protractor documentation : <a href="https://angular.github.io/protractor/#/locators#finding-multiple-elements">multiple elements</a></p>
 				</section>
 
-                <section>
-                    <section>
-                        <h2>Page objects</h2>
-                        <ul>
-                            <li>extra abstraction tests - code</li>
-                            <li>can be reused</li>
-                            <li>don't do assertions in page objects</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2>avoid :(</h2>
-                        <pre><code class="hljs" contenteditable style="word-wrap: break-word;">
+				<section id="page-objects">
+					<h2>Page objects</h2>
+					<ul>
+						<li>extra abstraction tests - code</li>
+						<li>can be reused</li>
+						<li>don't do assertions in page objects</li>
+					</ul>
+				</section>
+				<section id="page-objects-avoid">
+					<h2>avoid :(</h2>
+					<pre><code class="hljs" contenteditable style="word-wrap: break-word;">
 /* question.spec.js */
 describe('Question page', () => {
     it('should answer any question', () => {
@@ -223,13 +217,13 @@ describe('Question page', () => {
         expect(answer.getText()).toEqual("Chocolate!");
     });
 });
-                        </code></pre>
-                    </section>
-                    <section>
-                        <h2>encapsulate</h2>
-                        <pre><code class="hljs" contenteditable style="word-wrap: break-word;">
+					</code></pre>
+				</section>
+				<section id="page-objects-encapsulate">
+					<h2>encapsulate</h2>
+					<pre><code class="hljs" contenteditable style="word-wrap: break-word;">
 /* question.page.js */
-var QuestionPage = () => {
+let QuestionPage = () => {
 	this.question = element(by.model('question.text'));
 	this.answer = element(by.binding('answer'));
 	this.button = element(by.className('question-button'));
@@ -240,11 +234,11 @@ var QuestionPage = () => {
 	};
 };
 module.exports = QuestionPage;
-                        </code></pre>
-                    </section>
-                    <section>
-                    <h2>better :)</h2>
-                    <pre><code class="hljs" contenteditable style="word-wrap: break-word;">
+					</code></pre>
+				</section>
+				<section id="page-objects-better">
+					<h2>better :)</h2>
+					<pre><code class="hljs" contenteditable style="word-wrap: break-word;">
 /* question.spec.js */
 let QuestionPage = require('./question.page');
 
@@ -260,19 +254,18 @@ describe('Question page', () => {
                     </section>
                 </section>
 
-                <section>
-                    <section>
-                        <h2>Project structure</h2>
+                <section id="project-structure">
+					<h2>Project structure</h2>
 
-						<ul>
-							<li>locating test files should be instant</li>
-							<li>clearly seperate from unit tests</li>
-							<li>folder structure more readable</li>
-						</ul>
-                    </section>
-					<section>
-						<h2>Avoid :(</h2>
-						<pre><code class="hljs" contenteditable style="word-wrap: break-word;">
+					<ul>
+						<li>locating test files should be instant</li>
+						<li>clearly seperate from unit tests</li>
+						<li>folder structure more readable</li>
+					</ul>
+				</section>
+				<section id="project-structure-avoid">
+					<h2>Avoid :(</h2>
+					<pre><code class="hljs" contenteditable style="word-wrap: break-word;">
 |-- project-folder
 	|-- app
 		|-- home
@@ -294,11 +287,11 @@ describe('Question page', () => {
 			home.spec.js
 			contacts.pageObject.js
 			contacts.spec.js
-						</code></pre>
-					</section>
-					<section>
-						<h2>Better :)</h2>
-						<pre><code class="hljs" contenteditable style="word-wrap: break-word;">
+					</code></pre>
+				</section>
+				<section id="project-structure-better">
+					<h2>Better :)</h2>
+					<pre><code class="hljs" contenteditable style="word-wrap: break-word;">
 |-- project-folder
 |-- app
 	|-- home
@@ -323,12 +316,10 @@ describe('Question page', () => {
 		|-- contacts
 			contacts.pageObject.js
 			contacts.spec.js
-						</code></pre>
-					</section>
+					</code></pre>
+				</section>
 
-                </section>
-
-				<section>
+				<section id="demo">
 					<h2>Demo!</h2>
 				</section>
 
